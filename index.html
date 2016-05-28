@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+window.plugins.orientationLock.lock("portrait");
+</script>
+<title>Juego Matematico</title>
+<style>
+body{
+	background-image: url(fondo.jpg);
+	width: 350px;
+	height: 500px;
+	background-repeat: no-repeat;		
+	}
+
+#r{
+	width:100px;
+	height:50px;
+	font-size:36px;
+}
+#presv{
+	width:100px;
+	height:50px;
+	font-size:36px;
+}
+#pres{
+	width:100px;
+	height:50px;
+	font-size:36px;
+}
+#sresv{
+	width:100px;
+	height:50px;
+	font-size:36px;
+}
+#sres{
+	width:100px;
+	height:50px;
+	font-size:36px;
+}
+#rv{
+	width:100px;
+	height:50px;
+	font-size:36px;
+}
+
+.rotacion{
+	transform:rotate(180deg);
+	-webkit-transform: rotate(180deg); 
+    -moz-transform: rotate(180deg); 
+    -o-transform: rotate(180deg);
+}
+.rotacionoperacion{
+	transform:rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+.cuerpo{
+	margin: 0 auto;
+	padding:10px;
+	
+	align:center;
+	}
+
+.centrado{
+	text-align: center;
+	font-size: 40px;
+}
+.centrado2{
+	text-align: center;
+	font-size: 40px;
+}
+#contador1{
+	text-align: center;
+}
+#contador2{
+	text-align:center;
+}
+
+.logo{
+	float:right;
+	margin-bottom:220px;
+	
+	}
+
+</style>
+</head>
+
+<body>
+
+<h2 id="contador1">0</h2>
+
+<div class="cuerpo">
+
+<script type="text/javascript">
+
+var pres=Math.floor((Math.random() * 200) + 1);
+var sres=Math.floor((Math.random() * 200) + 1);
+var uno=Math.floor((Math.random() * 99) + 1);
+var dos=Math.floor((Math.random() * 99) + 1);
+var operacion=Math.floor((Math.random() * 2) + 1);
+
+if (operacion==1){
+	var tipooperacion="+";
+	var resultado = parseInt(uno)+parseInt(dos);
+}else{
+	var tipooperacion="-";
+	var resultado = parseInt(uno)-parseInt(dos);
+}
+
+function incorrecto(){
+	document.getElementById("contador1").innerHTML =	parseInt(document.getElementById("contador1").innerHTML) - 1;
+document.getElementById("contador2").innerHTML =	parseInt(document.getElementById("contador2").innerHTML) - 1;
+
+if (document.getElementById("contador1").innerHTML < 0){
+	document.getElementById("contador1").innerHTML =	0}
+	
+if (document.getElementById("contador2").innerHTML < 0){
+	document.getElementById("contador2").innerHTML =	0}
+	
+	}
+
+function correcto(){
+
+document.getElementById("contador1").innerHTML =	parseInt(document.getElementById("contador1").innerHTML) + 1;
+document.getElementById("contador2").innerHTML =	parseInt(document.getElementById("contador2").innerHTML) + 1;
+	
+var pres=Math.floor((Math.random() * 200) + 1);
+var sres=Math.floor((Math.random() * 200) + 1);
+var uno=Math.floor((Math.random() * 99) + 1);
+var dos=Math.floor((Math.random() * 99) + 1);
+var operacion=Math.floor((Math.random() * 2) + 1);
+
+if (operacion==1){
+	var tipooperacion="+";
+	var resultado = parseInt(uno)+parseInt(dos);
+}else{
+	var tipooperacion="-";
+	var resultado = parseInt(uno)-parseInt(dos);
+}
+
+document.getElementById("ejercicio").innerHTML = uno+" "+tipooperacion+" "+dos;
+document.getElementById("ejercicio1").innerHTML = uno+" "+tipooperacion+" "+dos;
+	
+
+var botoncorrecto=Math.floor((Math.random() * 3) + 1);
+
+
+
+switch (botoncorrecto){
+    case 1: 
+	
+	document.getElementById("sresv").value = sres;
+	document.getElementById("sres").value = sres;
+	document.getElementById("rv").value = resultado;
+	document.getElementById("r").value = resultado;
+	document.getElementById("presv").value = pres;
+	document.getElementById("pres").value = pres;
+	document.getElementById("rv").onclick = correcto;
+	document.getElementById("r").onclick = correcto;
+	document.getElementById("pres").onclick = "";
+	document.getElementById("presv").onclick = "";
+	document.getElementById("sresv").onclick = "";
+	document.getElementById("sres").onclick = ""; 
+           
+       break;
+    case 2: 
+    document.getElementById("sresv").value = resultado;
+	document.getElementById("sres").value = resultado;
+	document.getElementById("rv").value = sres;
+	document.getElementById("r").value = sres;
+	document.getElementById("presv").value = pres;
+	document.getElementById("pres").value = pres; 
+	document.getElementById("rv").onclick = "";
+	document.getElementById("r").onclick = "";
+	document.getElementById("sresv").onclick = correcto;
+	document.getElementById("sres").onclick = correcto;
+	document.getElementById("presv").onclick = "";
+	document.getElementById("pres").onclick = "";
+	   break;
+    case 3: 
+	document.getElementById("presv").value = resultado;
+	document.getElementById("pres").value = resultado;
+	document.getElementById("rv").value = pres;
+	document.getElementById("r").value = pres;
+	document.getElementById("sresv").value = sres;
+	document.getElementById("sres").value = sres; 
+	document.getElementById("rv").onclick = "";
+	document.getElementById("r").onclick = "";
+	document.getElementById("presv").onclick = correcto;
+	document.getElementById("pres").onclick = correcto;
+	document.getElementById("sresv").onclick = "";
+	document.getElementById("sres").onclick = "";            
+       break;
+}
+	
+	}
+	
+
+var botoncorrecto=Math.floor((Math.random() * 3) + 1);
+
+switch (botoncorrecto){
+    case 1: 
+    document.write('<div class="rotacion"><input id="rv" type="button" value="'+resultado+'" onclick="correcto();" />&nbsp;&nbsp;&nbsp;<input id="presv" type="button" value="'+ pres +'"  />&nbsp;&nbsp;&nbsp;<input id="sresv"  type="button" value="'+sres+'" /> </div>');       
+       break;
+    case 2: 
+    document.write('<div class="rotacion"><input id="presv" type="button" value="'+ pres +'" />&nbsp;&nbsp;&nbsp;<input id="rv" type="button" value="'+resultado+'" onclick="correcto();"  />&nbsp;&nbsp;&nbsp;<input id="sresv"  type="button" value="'+ sres +'" /></div>');       
+       break;
+    case 3: 
+	document.write('<div class="rotacion"><input id="presv" type="button" value="'+ pres +'" />&nbsp;&nbsp;&nbsp;<input id="sresv" type="button" value="'+ sres +'"  />&nbsp;&nbsp;&nbsp;<input id="rv" type="button" value="'+resultado+'" onclick="correcto();"  />');       
+       break;
+}
+
+
+
+document.write("<label ><h2 class='rotacionoperacion centrado2' id='ejercicio' >"+uno+" "+tipooperacion+" "+dos+"</h2></label><br />");
+document.write("<label ><h2 class='centrado' id='ejercicio1' >"+uno+" "+tipooperacion+" "+dos+"</h2></label><br />");
+</script>
+
+
+<script type="text/javascript">
+
+
+switch (botoncorrecto){
+    case 1: 
+    document.write('<input id="r" type="button" value="'+resultado+'" onclick="correcto();" />&nbsp;&nbsp;&nbsp;<input id="pres" type="button" value="'+ pres +'"  onclick="incorrecto();" />&nbsp;&nbsp;&nbsp;<input id="sres"  type="button" value="'+sres+'" onclick="incorrecto();"/>');             
+       break;
+    case 2: 
+    document.write('<input id="pres" type="button" value="'+ pres +'" onclick="incorrecto();"/>&nbsp;&nbsp;&nbsp;<input id="r" type="button" value="'+resultado+'" onclick="correcto();"  />&nbsp;&nbsp;&nbsp;<input id="sres" type="button" value="'+ sres +'"  onclick="incorrecto();"/>');       
+       break;
+    case 3: 
+	document.write('<input id="pres" type="button" value="'+ pres +'" onclick="incorrecto();"/>&nbsp;&nbsp;&nbsp;<input id="sres" type="button" value="'+ sres +'"  onclick="incorrecto();"/>&nbsp;&nbsp;&nbsp;<input id="r" type="button" value="'+resultado+'" onclick="correcto();"  />');         
+       break;
+}
+
+</script>
+
+</div>
+
+<br />
+<h2 id="contador2">0</h2>
+
+
+
+
+<div class="logo">
+<table width="330">
+  <tr>
+    <td><footer>
+<br />
+<h3> Carlos Rodriguez <br /> 
+ Orlando Correa <br />
+ Naren Avila <br />
+ Mateo Prieto</h3>
+ 
+</footer></td>
+    <td><img src="logo.png" width="157" height="78" /></td>
+  </tr>
+</table>
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
+</body>
+
+</html>
